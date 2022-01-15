@@ -6,6 +6,7 @@ import AddButton from '../components/AddButton'
 import Featured from '../components/Featured'
 import PizzaList from '../components/PizzaList'
 import styles from '../styles/Home.module.css'
+import { BASE_URL } from '../util/helper'
 
 export default function Home({pizzaList, admin}) {
   const [close, setClose] = useState(true);
@@ -33,7 +34,7 @@ export const getServerSideProps = async (ctx) => {
     admin = true;
   }
 
-  const res = await axios.get("http://localhost:3000/api/products");
+  const res = await axios.get(BASE_URL + "/api/products");
   return {
     props:{
       pizzaList: res.data,
