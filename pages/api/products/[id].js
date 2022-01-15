@@ -9,12 +9,11 @@ export default async function handler(req, res) {
         query: { id },
     } = req;
     
+    const token = cookies.token
+
     dbConnect();
 
     if (method === "GET") {
-        if (!token || token !== process.env.token) {
-            return res.status(401).json('Not Authenticated')
-        }
         try {
             const product = await Product.findById(id);
             res.status(200).json(product);
@@ -24,6 +23,9 @@ export default async function handler(req, res) {
     }
 
     if (method === "PUT") {
+        if (!token || token !== process.env.token) {
+            return res.status(401).json('Not Authenticated')
+        }
         try {
             const product = await Product.create(req.body);
             res.status(201).json(product);

@@ -24,7 +24,7 @@ const Navbar = () => {
                     </Link>
                     <li className={styles.listItem}>Products</li>
                     <li className={styles.listItem}>Menu</li>
-                    <Image src="/img/logo.png" width="160" height="69" alt="Pizza Restaurant" />
+                    <Image src="/img/logo.png" width="85" height="80" alt="Pizza Restaurant" />
                     <li className={styles.listItem}>Events</li>
                     <li className={styles.listItem}>Blog</li>
                     <li className={styles.listItem}>Contact</li>
